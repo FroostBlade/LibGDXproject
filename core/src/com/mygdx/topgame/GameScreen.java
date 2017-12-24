@@ -11,15 +11,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 
 class GameScreen implements Screen {
 
-    final Main game;
-    OrthographicCamera camera;
-
-    public GameScreen(Main main) {
-        this.game = main;
-        camera = new OrthographicCamera();
-        camera.setToOrtho(false, 800, 480);
-    }
-
     @Override
     public void show() {
 
@@ -27,8 +18,7 @@ class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0.2f, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
     }
 
     @Override

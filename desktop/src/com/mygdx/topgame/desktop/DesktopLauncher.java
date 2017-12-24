@@ -2,14 +2,14 @@ package com.mygdx.topgame.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.mygdx.topgame.Main;
+import com.mygdx.topgame.MenuGame;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "Knights";
-		config.width = 800;
-		config.height = 480;
-		new LwjglApplication(new Main(), config);
+		config.width = 800; // y
+		config.height = 480; // x
+		new LwjglApplication(new MenuGame(), config);
 	}
 }
