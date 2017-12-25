@@ -16,6 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.topgame.Knight;
+import com.mygdx.topgame.obj.BackgroundActor;
 
 
 public class MenuScreen implements Screen {
@@ -23,6 +24,7 @@ public class MenuScreen implements Screen {
 	Stage stage;
 	final Knight knight;
 	private Table table;
+	public BackgroundActor background;
 
 	public MenuScreen(final Knight knight1) {
 
