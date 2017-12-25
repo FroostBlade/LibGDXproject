@@ -1,15 +1,21 @@
-package com.mygdx.topgame;
+package com.mygdx.topgame.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.mygdx.topgame.Knight;
 
 /**
  * Created by Dmitry on 24.12.2017.
  */
 
 class GameScreen implements Screen {
+
+    final Knight knight;
+
+    public GameScreen(final Knight knight1) {
+        knight = knight1;
+    }
 
     @Override
     public void show() {
@@ -18,7 +24,8 @@ class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     }
 
     @Override
@@ -43,6 +50,6 @@ class GameScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        knight.dispose();
     }
 }
