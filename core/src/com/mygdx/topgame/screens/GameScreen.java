@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -20,7 +21,8 @@ class GameScreen implements Screen {
 
     final StartGame startGame;
     BackgroundActor background;
-    CloudActor cloudActor;
+    CloudActor BackGroud_Cloud_1;
+    CloudActor BackGroud_Cloud_2;
     Stage stage;
     TextureAtlas backgroundObj;
 
@@ -28,16 +30,27 @@ class GameScreen implements Screen {
         stage = new Stage(new ScreenViewport());
         startGame = startGame1;
         backgroundObj = new TextureAtlas(Gdx.files.internal("images/Background/BackGround.atlas"));
+
         background = new BackgroundActor();
         background.setPosition(0, 0);
-
-        cloudActor = new CloudActor(backgroundObj);
-        cloudActor.setPosition(20,100);
-        //cloudActor.addAction(Actions.color(Color.BLACK, 2));
-        //cloudActor.addAction(Actions.moveTo(100, 100, 1));
-
         stage.addActor(background);
-        stage.addActor(cloudActor);
+
+        BackGroud_Cloud_1 = new CloudActor(backgroundObj, "LandScreen_cloud1");
+        BackGroud_Cloud_1.setPosition(100,340);
+        BackGroud_Cloud_1.setRotation(40);
+        BackGroud_Cloud_1.addAction(Actions.forever(Actions.sequence(
+                    Actions.moveTo(100, 330, 1),
+                    Actions.moveTo(100, 340, 1)
+                ))
+        );
+        stage.addActor(BackGroud_Cloud_1);
+
+        BackGroud_Cloud_2 = new CloudActor(backgroundObj, "LandScreen_cloud2");
+        BackGroud_Cloud_2.setPosition(610,380);
+        BackGroud_Cloud_2.addAction(Actions.sequence(Actions.fadeOut(0.15f), Actions.fadeIn(0.15f)));
+        stage.addActor(BackGroud_Cloud_2);
+
+
 
         Gdx.input.setInputProcessor(stage);
         Gdx.input.setCatchBackKey(true);
