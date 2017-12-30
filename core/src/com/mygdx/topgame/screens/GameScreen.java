@@ -37,6 +37,7 @@ class GameScreen implements Screen {
 
         BackGroud_Cloud_1 = new CloudActor(backgroundObj, "LandScreen_cloud1");
         BackGroud_Cloud_1.setPosition(100,340);
+        BackGroud_Cloud_1.setSize(250, 135);
         BackGroud_Cloud_1.setRotation(40);
         BackGroud_Cloud_1.addAction(Actions.forever(Actions.sequence(
                     Actions.moveTo(100, 330, 1),
@@ -45,10 +46,10 @@ class GameScreen implements Screen {
         );
         stage.addActor(BackGroud_Cloud_1);
 
-        BackGroud_Cloud_2 = new CloudActor(backgroundObj, "LandScreen_cloud2");
-        BackGroud_Cloud_2.setPosition(610,380);
-        BackGroud_Cloud_2.addAction(Actions.sequence(Actions.fadeOut(0.15f), Actions.fadeIn(0.15f)));
-        stage.addActor(BackGroud_Cloud_2);
+        //BackGroud_Cloud_2 = new CloudActor(backgroundObj, "LandScreen_cloud2");
+        //BackGroud_Cloud_2.setPosition(610,380);
+        //BackGroud_Cloud_2.addAction(Actions.sequence(Actions.fadeOut(0.15f), Actions.fadeIn(0.15f)));
+        //stage.addActor(BackGroud_Cloud_2);
 
 
 
@@ -63,9 +64,8 @@ class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        //Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
         stage.act(delta);
         stage.draw();
     }
