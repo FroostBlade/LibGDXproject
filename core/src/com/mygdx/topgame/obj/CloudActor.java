@@ -1,10 +1,8 @@
 package com.mygdx.topgame.obj;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 /**
@@ -12,13 +10,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  */
 
 public class CloudActor extends Actor {
-    private TextureAtlas textureAtlas;
-    private Animation animation;
-    private float x = 0;
-    private boolean upDown = true;
+    TextureRegion texture;
 
-    public CloudActor(TextureAtlas textureAtlas) {
-        this.textureAtlas = textureAtlas;
+    public CloudActor(TextureAtlas textureAtlas, String name) {
+        texture = textureAtlas.findRegion(name);
     }
 
     public void act (float delta){
@@ -27,18 +22,6 @@ public class CloudActor extends Actor {
 
     public void draw (Batch batch, float parentAlpha){
         super.draw(batch, parentAlpha);
-        x += Gdx.graphics.getDeltaTime();
-        //batch.draw((TextureRegion) animation.getKeyFrame(stateTime, true), 10, 10);
-        batch.draw(textureAtlas.findRegion("LandScreen_black_cloud1"), x*5, 0, 263, 36);
-
-
-//        if (upDown) {
-//            x++;
-//            if (x==500) upDown = false;
-//        }
-//        if (upDown = false) {
-//            x--;
-//            if (x==0) upDown = true;
-//        }
+        batch.draw(texture, this.getX(), this.getY(), 250, 135);
     }
 }
