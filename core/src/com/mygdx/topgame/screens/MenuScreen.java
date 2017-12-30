@@ -1,11 +1,9 @@
 package com.mygdx.topgame.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -15,20 +13,20 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.mygdx.topgame.Knight;
+import com.mygdx.topgame.StartGame;
 import com.mygdx.topgame.obj.BackgroundActor;
 
 
 public class MenuScreen implements Screen {
 
 	Stage stage;
-	final Knight knight;
+	final StartGame startGame;
 	private Table table;
 	public BackgroundActor background;
 
-	public MenuScreen(final Knight knight1) {
+	public MenuScreen(final StartGame startGame1) {
 
-		knight = knight1;
+		startGame = startGame1;
 
 		stage = new Stage(new ScreenViewport());
 
@@ -50,7 +48,7 @@ public class MenuScreen implements Screen {
 		StartBut.addListener(new ClickListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				knight.setScreen(new GameScreen(knight));
+				startGame.setScreen(new GameScreen(startGame));
 				dispose();
 			}
 		});
@@ -115,6 +113,6 @@ public class MenuScreen implements Screen {
 	@Override
 	public void dispose () {
 		stage.dispose();
-		knight.dispose();
+		startGame.dispose();
 	}
 }

@@ -15,7 +15,7 @@ import java.util.HashMap;
  */
 
 
-public class Knight extends Game {
+public class StartGame extends Game {
 
     private static final String FONT_CHARACTERS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;,{}\"´`'<>";
     public BitmapFont font, levels;

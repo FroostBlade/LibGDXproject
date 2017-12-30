@@ -1,0 +1,47 @@
+
+BackGround.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+LandScreen_black_cloud2
+  rotate: false
+  xy: 1, 788
+  size: 1052, 146
+  orig: 1052, 146
+  offset: 0, 0
+  index: -1
+LandScreen_cloud3
+  rotate: false
+  xy: 1, 470
+  size: 746, 316
+  orig: 746, 316
+  offset: 0, 0
+  index: -1
+LandScreen_black_cloud1
+  rotate: false
+  xy: 1055, 787
+  size: 835, 147
+  orig: 835, 147
+  offset: 0, 0
+  index: -1
+LandScreen_cloud1
+  rotate: false
+  xy: 1, 149
+  size: 589, 319
+  orig: 589, 319
+  offset: 0, 0
+  index: -1
+LandScreen_black_cloud3
+  rotate: false
+  xy: 1, 1
+  size: 571, 146
+  orig: 571, 146
+  offset: 0, 0
+  index: -1
+LandScreen_cloud2
+  rotate: false
+  xy: 749, 468
+  size: 588, 317
+  orig: 588, 317
+  offset: 0, 0
+  index: -1

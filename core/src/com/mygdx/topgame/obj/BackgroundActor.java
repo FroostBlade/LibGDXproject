@@ -15,7 +15,7 @@ public class BackgroundActor extends Actor {
     private Sprite backgroundSprite;
 
     public BackgroundActor() {
-        backgroundTexture = new Texture("images/LandScreen.png");
+        backgroundTexture = new Texture("images/Background/LandScreen_main.png");
         backgroundSprite = new Sprite(backgroundTexture);
         backgroundSprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }

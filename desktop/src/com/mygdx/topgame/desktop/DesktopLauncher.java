@@ -2,7 +2,7 @@ package com.mygdx.topgame.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.mygdx.topgame.Knight;
+import com.mygdx.topgame.StartGame;
 
 public class DesktopLauncher {
 
@@ -14,6 +14,6 @@ public class DesktopLauncher {
 		config.width = 800; // x
 		config.height = 480; // y
 		if (desktopLauncher == null) desktopLauncher = new DesktopLauncher();
-		new LwjglApplication(new Knight(), config);
+		new LwjglApplication(new StartGame(), config);
 	}
 }

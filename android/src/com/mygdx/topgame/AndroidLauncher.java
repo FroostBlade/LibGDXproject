@@ -12,6 +12,6 @@ public class AndroidLauncher extends AndroidApplication {
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		config.useAccelerometer = false;
 		config.useCompass = false;
-		initialize(new Knight(), config);
+		initialize(new StartGame(), config);
 	}
 }
