@@ -38,9 +38,10 @@ class GameScreen implements Screen {
         BackGroud_Cloud_1 = new CloudActor(backgroundObj, "LandScreen_cloud1");
         BackGroud_Cloud_1.setPosition(100,340);
         BackGroud_Cloud_1.setSize(250, 135);
-        BackGroud_Cloud_1.setRotation(40);
         BackGroud_Cloud_1.addAction(Actions.forever(Actions.sequence(
                     Actions.moveTo(100, 330, 1),
+                    Actions.fadeOut(1),
+                    Actions.fadeIn(1),
                     Actions.moveTo(100, 340, 1)
                 ))
         );
