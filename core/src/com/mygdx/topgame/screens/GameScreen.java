@@ -67,7 +67,20 @@ class GameScreen implements Screen {
         BackGroud_Cloud_1.setSize(155, 83);
         BackGroud_Cloud_1.addAction(Actions.forever(
                 Actions.sequence(
-
+                        Actions.moveTo(75, 338, 0.8f),
+                        Actions.moveTo(70, 330, 0.8f),
+                        Actions.moveTo(60, 333, 1f),
+                        Actions.parallel(
+                                Actions.moveTo(62, 333, 0.5f),
+                                Actions.alpha(0.7f, 0.5f)
+                        ),
+                        Actions.moveTo(65, 336, 0.3f),
+                        Actions.moveTo(70, 339, 0.3f),
+                        Actions.moveTo(75, 341, 0.3f),
+                        Actions.parallel(
+                                Actions.moveTo(80, 340, 0.3f),
+                                Actions.alpha(1f, 0.3f)
+                        )
                 )
         ));
         stage.addActor(BackGroud_Cloud_1);
