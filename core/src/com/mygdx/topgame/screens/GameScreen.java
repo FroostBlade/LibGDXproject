@@ -8,7 +8,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.topgame.StartGame;
-import com.mygdx.topgame.obj.BackgroundActor;
 import com.mygdx.topgame.obj.ImageActor;
 
 /**
@@ -17,27 +16,20 @@ import com.mygdx.topgame.obj.ImageActor;
 
 class GameScreen implements Screen {
 
-    final StartGame startGame;
-    BackgroundActor background;
-    ImageActor BackGroud_Cloud_1;
-    ImageActor BackGroud_Cloud_2;
-    ImageActor BackGroud_Cloud_3;
-    ImageActor BackGroud_Black_Cloud_1;
-    ImageActor BackGroud_Black_Cloud_2;
-    ImageActor BackGroud_Black_Cloud_3;
-    Stage stage;
-    TextureAtlas backgroundObj;
+    private final StartGame startGame;
+    private Stage stage;
 
     public GameScreen(final StartGame startGame1) {
         stage = new Stage(new ScreenViewport());
         startGame = startGame1;
-        backgroundObj = new TextureAtlas(Gdx.files.internal("images/Background/BackGround.atlas"));
+        TextureAtlas backgroundObj = new TextureAtlas(Gdx.files.internal("images/Background/BackGround.atlas"));
 
-        background = new BackgroundActor();
+        ImageActor background = new ImageActor("images/Background/LandScreen_main.png");
         background.setPosition(0, 0);
+        background.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         stage.addActor(background);
 
-        BackGroud_Black_Cloud_1 = new ImageActor(backgroundObj, "LandScreen_black_cloud1");
+        ImageActor BackGroud_Black_Cloud_1 = new ImageActor(backgroundObj, "LandScreen_black_cloud1");
         BackGroud_Black_Cloud_1.setPosition(30,370);
         BackGroud_Black_Cloud_1.setSize(370, 70);
         BackGroud_Black_Cloud_1.addAction(Actions.forever(
@@ -48,7 +40,7 @@ class GameScreen implements Screen {
         ));
         stage.addActor(BackGroud_Black_Cloud_1);
 
-        BackGroud_Black_Cloud_2 = new ImageActor(backgroundObj, "LandScreen_black_cloud2");
+        ImageActor BackGroud_Black_Cloud_2 = new ImageActor(backgroundObj, "LandScreen_black_cloud2");
         BackGroud_Black_Cloud_2.setPosition(120,30);
         BackGroud_Black_Cloud_2.setSize(500, 54);
         BackGroud_Black_Cloud_2.addAction(Actions.forever(
@@ -59,7 +51,7 @@ class GameScreen implements Screen {
         ));
         stage.addActor(BackGroud_Black_Cloud_2);
 
-        BackGroud_Black_Cloud_3 = new ImageActor(backgroundObj, "LandScreen_black_cloud3");
+        ImageActor BackGroud_Black_Cloud_3 = new ImageActor(backgroundObj, "LandScreen_black_cloud3");
         BackGroud_Black_Cloud_3.setPosition(500,376);
         BackGroud_Black_Cloud_3.setSize(270, 78);
         BackGroud_Black_Cloud_3.addAction(Actions.forever(
@@ -70,7 +62,7 @@ class GameScreen implements Screen {
         ));
         stage.addActor(BackGroud_Black_Cloud_3);
 
-        BackGroud_Cloud_1 = new ImageActor(backgroundObj, "LandScreen_cloud1");
+        ImageActor BackGroud_Cloud_1 = new ImageActor(backgroundObj, "LandScreen_cloud1");
         BackGroud_Cloud_1.setPosition(80,340);
         BackGroud_Cloud_1.setSize(155, 83);
         BackGroud_Cloud_1.addAction(Actions.forever(
@@ -80,12 +72,24 @@ class GameScreen implements Screen {
         ));
         stage.addActor(BackGroud_Cloud_1);
 
-        BackGroud_Cloud_2 = new ImageActor(backgroundObj, "LandScreen_cloud2");
-        BackGroud_Cloud_2.setPosition(320,360);
+        ImageActor BackGroud_Cloud_2 = new ImageActor(backgroundObj, "LandScreen_cloud2");
+        BackGroud_Cloud_2.setPosition(325,375);
         BackGroud_Cloud_2.setSize(165, 89);
+        BackGroud_Cloud_2.addAction(Actions.forever(
+                Actions.sequence(
+                        Actions.parallel(
+                                Actions.moveTo(320, 365, 1.2f),
+                                Actions.alpha(0.5f, 1.2f)
+                        ),
+                        Actions.parallel(
+                                Actions.moveTo(325, 375,1.2f),
+                                Actions.alpha(0.9f,1.2f)
+                        )
+                )
+        ));
         stage.addActor(BackGroud_Cloud_2);
 
-        BackGroud_Cloud_3 = new ImageActor(backgroundObj, "LandScreen_cloud3");
+        ImageActor BackGroud_Cloud_3 = new ImageActor(backgroundObj, "LandScreen_cloud3");
         BackGroud_Cloud_3.setPosition(620,320);
         BackGroud_Cloud_3.setSize(130, 70);
         BackGroud_Cloud_3.addAction(Actions.forever(
@@ -114,7 +118,7 @@ class GameScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+        //stage.getActors().items[0].setSize(width, height);
     }
 
     @Override

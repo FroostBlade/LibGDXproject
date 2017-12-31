@@ -14,15 +14,12 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.topgame.StartGame;
-import com.mygdx.topgame.obj.BackgroundActor;
 
 
 public class MenuScreen implements Screen {
 
-	Stage stage;
-	final StartGame startGame;
-	private Table table;
-	public BackgroundActor background;
+	private Stage stage;
+	private final StartGame startGame;
 
 	public MenuScreen(final StartGame startGame1) {
 
@@ -38,12 +35,10 @@ public class MenuScreen implements Screen {
 		styleStartButton.up = new TextureRegionDrawable(downRegionStartBut);
 		styleStartButton.down = new TextureRegionDrawable(upRegionStartBut);
 		Button StartBut = new Button(styleStartButton);
-		//StartBut.setPosition(240, 300);
 		TextButton.TextButtonStyle styleExitButton = new TextButton.TextButtonStyle();
 		styleExitButton.up = new TextureRegionDrawable(downRegionExitBut);
 		styleExitButton.down = new TextureRegionDrawable(upRegionExitBut);
 		Button ExitBut = new Button(styleExitButton);
-		//ExitBut.setPosition(240,100);
 
 		StartBut.addListener(new ClickListener() {
 			@Override
@@ -64,7 +59,7 @@ public class MenuScreen implements Screen {
 		stage.addActor(StartBut);
 		stage.addActor(ExitBut);
 
-		table = new Table();
+		Table table = new Table();
 		table.setFillParent(true);
 
 		table.add(StartBut);
