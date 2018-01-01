@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -24,23 +25,26 @@ public class MenuScreen implements Screen {
 	public MenuScreen(final StartGame startGame1) {
 
 		startGame = startGame1;
-
 		stage = new Stage(new ScreenViewport());
 
-		TextureRegion downRegionStartBut = new TextureRegion(new Texture(Gdx.files.internal("images/Menu-01.png")));
-		TextureRegion upRegionStartBut = new TextureRegion(new Texture(Gdx.files.internal("images/Menu-01.png")));
-		TextureRegion downRegionExitBut = new TextureRegion(new Texture(Gdx.files.internal("images/Menu-02.png")));
-		TextureRegion upRegionExitBut = new TextureRegion(new Texture(Gdx.files.internal("images/Menu-02.png")));
-		TextButton.TextButtonStyle styleStartButton = new TextButton.TextButtonStyle();
-		styleStartButton.up = new TextureRegionDrawable(downRegionStartBut);
-		styleStartButton.down = new TextureRegionDrawable(upRegionStartBut);
-		Button StartBut = new Button(styleStartButton);
-		TextButton.TextButtonStyle styleExitButton = new TextButton.TextButtonStyle();
-		styleExitButton.up = new TextureRegionDrawable(downRegionExitBut);
-		styleExitButton.down = new TextureRegionDrawable(upRegionExitBut);
-		Button ExitBut = new Button(styleExitButton);
+		Texture but = new Texture("images/Buttons/Menu_Button1.png");
 
-		StartBut.addListener(new ClickListener() {
+
+		TextureRegion button = new TextureRegion(new Texture(Gdx.files.internal("images/Buttons/Menu_Button1.png")));
+		TextureRegion buttonBright = new TextureRegion(new Texture(Gdx.files.internal("images/Buttons/Menu_ButtonDown1.png")));
+		TextureRegion buttonDown = new TextureRegion(new Texture(Gdx.files.internal("images/Buttons/Menu_ButtonDown2.png")));
+
+		TextButton.TextButtonStyle styleStartButton = new TextButton.TextButtonStyle();
+		styleStartButton.up = new TextureRegionDrawable(button);
+		styleStartButton.down = new TextureRegionDrawable(buttonDown);
+		styleStartButton.over = new TextureRegionDrawable(buttonBright);
+
+		styleStartButton.font = new BitmapFont();
+
+		TextButton startBut = new TextButton("Играть", styleStartButton);
+		TextButton extButton = new TextButton("Выход", styleStartButton);
+
+		startBut.addListener(new ClickListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				startGame.setScreen(new GameScreen(startGame));
@@ -48,7 +52,7 @@ public class MenuScreen implements Screen {
 			}
 		});
 
-		ExitBut.addListener(new ClickListener() {
+		extButton.addListener(new ClickListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				Gdx.app.exit();
@@ -56,15 +60,12 @@ public class MenuScreen implements Screen {
 			}
 		});
 
-		stage.addActor(StartBut);
-		stage.addActor(ExitBut);
-
 		Table table = new Table();
 		table.setFillParent(true);
 
-		table.add(StartBut);
+		table.add(startBut);
 		table.row();
-		table.add(ExitBut);
+		table.add(extButton);
 		stage.addActor(table);
 
 		Gdx.input.setInputProcessor(stage);
